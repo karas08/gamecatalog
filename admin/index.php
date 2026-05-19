@@ -1,6 +1,7 @@
 <?php
 // 1. Підключаємо конфігурацію бази даних
 require_once '../include/config.php';
+require_once "include/auth_check.php";
 
 // 2. Автоматично шукаємо змінну підключення, яка створена у твоєму config.php
 $db_connection = null;
