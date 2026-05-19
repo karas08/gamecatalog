@@ -1,6 +1,5 @@
 <?php
 require_once '../include/config.php';
-require_once "include/auth_check.php";
 
 $db_connection = null;
 if (isset($link)) { $db_connection = $link; }

@@ -1,7 +1,6 @@
 <?php
 ob_start(); 
 require_once "../include/config.php";
-require_once "include/auth_check.php";
 include_once "../include/header.php";
 
 if (!isset($_SESSION['user_id']) || (!isset($_SESSION['is_admin']) && !isset($_SESSION['role']))) {

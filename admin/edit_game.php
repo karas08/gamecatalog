@@ -1,6 +1,5 @@
 <?php
 require_once "../include/config.php";
-require_once "include/auth_check.php";
 
 // 1. ПЕРЕВІРКА СЕСІЇ
 if (session_status() === PHP_SESSION_NONE) { session_start(); }

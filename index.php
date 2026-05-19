@@ -1,7 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
 require_once "include/config.php";
-require_once "include/auth_check.php";
 include_once "include/header.php";
 
 $limit = 8; 
