@@ -1,6 +1,5 @@
 <?php
 require_once "include/config.php";
-require_once "include/auth_check.php";
 include_once "include/header.php";
 
 $id = (int)$_GET['id'];
