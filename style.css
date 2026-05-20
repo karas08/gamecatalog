@@ -1,41 +1,57 @@
-/* Скидання відступів та налаштування розмірів */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* --- Скидання та база --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+
+/* --- Адаптивний Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #2c3e50;
+    color: #fff;
+    position: relative;
 }
 
-/* Зображення тепер ніколи не будуть ширшими за свій контейнер */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+.nav-menu ul { display: flex; list-style: none; gap: 20px; }
+.nav-menu a { color: white; text-decoration: none; font-weight: bold; }
+
+/* Бургер */
+.menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.menu-toggle span { display: block; width: 25px; height: 3px; background: white; }
+
+/* --- Адаптація меню (Бургер) --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #34495e;
+        padding: 20px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+    .nav-menu.active { display: block; }
+    .nav-menu ul { flex-direction: column; gap: 15px; }
 }
 
-body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    padding: 10px; /* Відступ від країв екрана на телефонах */
-}
-
+/* --- Адаптивна сітка каталогу --- */
 .catalog-container {
     display: grid;
-    /* 250px - це мінімальна ширина картки. 1fr - займає вільне місце */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Відстань між картками */
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 5%;
 }
 
 .game-card {
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
     padding: 15px;
-    border-radius: 8px;
-    background: #f9f9f9;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column; /* Ставить пункти меню один під одним */
-        align-items: center;
-    }
-}
+.game-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
