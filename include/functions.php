@@ -1,6 +1,11 @@
 <?php
 include_once "config.php";
 
+
+function e($text) {
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+}
+
 // Функція для отримання всіх ігор
 function get_all_games() {
     global $conn;
@@ -10,11 +15,7 @@ function get_all_games() {
 }
 
 // Функція для отримання однієї гри за ID
-function get_game_by_id($id) {
-    global $conn;
-    $id = mysqli_real_escape_string($conn, $id);
-    $sql = "SELECT * FROM games WHERE id = '$id'";
-    $result = mysqli_query($conn, $sql);
-    return mysqli_fetch_assoc($result);
-}
-?>
+$id = $_GET['id'];
+$query = "SELECT * FROM games WHERE id = $id";
+$result = mysqli_query($conn, $query);
+$game = mysqli_fetch_assoc($result);

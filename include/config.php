@@ -9,4 +9,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Помилка підключення: " . mysqli_connect_error());
 }
+
+mysqli_set_charset($conn, "utf8mb4");
 ?>

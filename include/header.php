@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) { session_start(); }
 
 include_once "track_online.php";
 
-$root = "/gamekatalog/"; 
+$root = "/"; 
 $pages = [
     'home' => $root . "index.php",
     'login' => $root . "login/index.php",

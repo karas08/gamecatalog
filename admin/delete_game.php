@@ -1,4 +1,14 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) { 
+    session_start(); 
+}
+
+// Перевіряємо: якщо користувач НЕ увійшов АБО його роль НЕ 'admin'
+if (!isset($_SESSION['username']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    // Скидаємо його на головну сторінку сайту
+    header("Location: ../index.php");
+    exit(); // Зупиняємо виконання скрипту
+}
 // 1. Підключаємо налаштування бази даних
 require_once '../include/config.php';
 
